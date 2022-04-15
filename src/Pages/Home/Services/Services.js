@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Experts from "../Experts/Experts";
 import Service from "../Service/Service";
 import "./Services.css";
 
@@ -12,13 +13,16 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="services-title">
-      <h1>this is services</h1>
+    <div className="services-title container mx-auto">
+      <h1 className=" text-center my-8 text-4xl font-semibold">
+        This is Services
+      </h1>
       <div className="services-container">
         {services.map((service) => (
           <Service service={service} key={service.id}></Service>
         ))}
       </div>
+      <Experts></Experts>
     </div>
   );
 };
