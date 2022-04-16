@@ -5,7 +5,7 @@ const Expert = ({ expert }) => {
   return (
     <div className="card my-6 mx-auto" style={{ width: "18rem" }}>
       <img src={img} className="card-img-top" alt="" />
-      <div class="card-body">
+      <div className="card-body">
         <h2 className="mb-2 text-lg font-semibold">{name}</h2>
         <p className="card-text">
           Some quick example text to build on the card title and make up the

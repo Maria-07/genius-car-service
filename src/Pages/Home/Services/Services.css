@@ -18,3 +18,12 @@
         grid-gap: 20px;
     }
 }
+
+/* 
+.head {
+    transition: ease-in-out 0.3s;
+}
+
+.head:hover {
+    color: red;
+} */

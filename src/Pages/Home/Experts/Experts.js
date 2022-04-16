@@ -10,11 +10,11 @@ import Expert from "../Expert/Expert";
 const Experts = () => {
   const experts = [
     { id: 1, name: "wil smith", img: expert1 },
-    { id: 1, name: "wil smith", img: expert2 },
-    { id: 1, name: "wil smith", img: expert3 },
-    { id: 1, name: "wil smith", img: expert4 },
-    { id: 1, name: "wil smith", img: expert5 },
-    { id: 1, name: "wil smith", img: expert6 },
+    { id: 2, name: "wil smith", img: expert2 },
+    { id: 3, name: "wil smith", img: expert3 },
+    { id: 4, name: "wil smith", img: expert4 },
+    { id: 5, name: "wil smith", img: expert5 },
+    { id: 6, name: "wil smith", img: expert6 },
   ];
   return (
     <div className="container">
