@@ -1,7 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Service = ({ service }) => {
-  const { name, price, img, description } = service;
+  const { id, name, price, img, description } = service;
+  const navigate = useNavigate();
+
+  const handleNavigateToServviceDetails = (id) => {
+    navigate(`/service/${id}`);
+  };
 
   return (
     <div className="border mx-auto w-full md:w-9/12 p-2">
@@ -14,7 +20,10 @@ const Service = ({ service }) => {
         </p>
       </div>
 
-      <button className="w-full bg-sky-800 text-white py-2 ">
+      <button
+        onClick={() => handleNavigateToServviceDetails(id)}
+        className="w-full bg-sky-800 text-white py-2 "
+      >
         Book : {name}
       </button>
     </div>

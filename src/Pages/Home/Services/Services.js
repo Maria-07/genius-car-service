@@ -13,7 +13,7 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="services-title container mx-auto ">
+    <div id="services" className="services-title container mx-auto ">
       <h1 className="head text-center my-20 text-4xl font-semibold">
         This is Services
       </h1>
