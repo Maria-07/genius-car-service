@@ -21,8 +21,8 @@ const Experts = () => {
       <h2 className=" text-center font-medium text-4xl my-10">Our Experts</h2>
       <div className="row">
         {experts.map((expert) => (
-          <div className="col-sm-12 col-md-6 col-lg-4">
-            <Expert key={expert.id} expert={expert}></Expert>
+          <div key={expert.id} className="col-sm-12 col-md-6 col-lg-4">
+            <Expert expert={expert}></Expert>
           </div>
         ))}
       </div>

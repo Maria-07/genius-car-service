@@ -2,11 +2,11 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const Service = ({ service }) => {
-  const { id, name, price, img, description } = service;
+  const { _id, name, price, img, description } = service;
   const navigate = useNavigate();
 
   const handleNavigateToServviceDetails = (id) => {
-    navigate(`/service/${id}`);
+    navigate(`/service/${_id}`);
   };
 
   return (
@@ -21,7 +21,7 @@ const Service = ({ service }) => {
       </div>
 
       <button
-        onClick={() => handleNavigateToServviceDetails(id)}
+        onClick={() => handleNavigateToServviceDetails(_id)}
         className="w-full bg-sky-800 text-white py-2 "
       >
         Book : {name}

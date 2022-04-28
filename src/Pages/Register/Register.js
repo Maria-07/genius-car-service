@@ -1,19 +1,67 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import auth from "../../firebase.init";
 
 const Register = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
+
+  const [createUserWithEmailAndPassword, user] =
+    useCreateUserWithEmailAndPassword(auth);
+
+  const handleEmailBlur = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+    console.log(value);
+  };
+  const handlePasswordBlur = (e) => {
+    const value = e.target.value;
+    setPassword(value);
+  };
+  const handleConfirmBlur = (e) => {
+    const value = e.target.value;
+    if (value === "") {
+      setError("");
+    }
+    setConfirmPassword(value);
+  };
+
+  if (user) {
+    navigate(from, { replace: true });
+  }
+
+  const handleCreateUser = (event) => {
+    event.preventDefault();
+    if (password !== confirmPassword) {
+      setError("your two passwords did not match");
+      return;
+    }
+    if (password.length < 6) {
+      setError("password must be 6 characters");
+    }
+    createUserWithEmailAndPassword(email, password);
+  };
+
   return (
     <div>
       <div className="mx-auto">
         <form
-          //   onSubmit={handleCreateUser}
+          onSubmit={handleCreateUser}
           className=" border-2 p-11 mt-14 w-full md:w-4/5 lg:w-1/4 mb-4 mx-auto text-center"
         >
           <h1 className=" mb-8 text-3xl">Sign UP</h1>
           <div className=" text-left">
             <p>Email</p>
             <input
-              //   onBlur={handleEmailBlur}
+              onBlur={handleEmailBlur}
               required
               type="email"
               className="form-input px-4 py-3 rounded w-full border-2 my-2"
@@ -24,7 +72,7 @@ const Register = () => {
           <div className=" text-left">
             <p>Password</p>
             <input
-              //   onBlur={handlePasswordBlur}
+              onBlur={handlePasswordBlur}
               required
               type="password"
               className="form-input px-4 py-3 rounded w-full border-2 my-2"
@@ -35,7 +83,7 @@ const Register = () => {
           <div className=" text-left">
             <p>Confirm Password</p>
             <input
-              //   onBlur={handleConfirmBlur}
+              onBlur={handleConfirmBlur}
               required
               type="password"
               className="form-input px-4 py-3 rounded w-full border-2 my-2"
