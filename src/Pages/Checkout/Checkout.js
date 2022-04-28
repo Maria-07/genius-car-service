@@ -24,21 +24,23 @@ const Checkout = () => {
       email: user.email,
     };
     console.log(order);
-    axios.post("http://localhost:5000/order", order).then((response) => {
-      const { data } = response;
-      if (data.insertedId) {
-        toast("your order is booked");
-        e.target.reset();
-      }
-    });
+    axios
+      .post("https://rocky-sierra-22125.herokuapp.com/order", order)
+      .then((response) => {
+        const { data } = response;
+        if (data.insertedId) {
+          toast("your order is booked");
+          e.target.reset();
+        }
+      });
 
     // axios({
     //   method: "post",
-    //   url: "http://localhost:5000/order",
+    //   url: "https://rocky-sierra-22125.herokuapp.com/order",
     //   data: order,
     // });
 
-    // fetch("http://localhost:5000/order", {
+    // fetch("https://rocky-sierra-22125.herokuapp.com/order", {
     //   method: "POST",
     //   headers: {
     //     "Content-Type": "application/json",
